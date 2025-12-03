@@ -11,7 +11,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route("/")
 @app.route("/home")
 def home():
-    posts = Post.query.all()
+    posts = Post.query.order_by(Post.date_posted.desc()).all()
     return render_template('home.html', posts=posts)
 
 
@@ -142,3 +142,13 @@ def delete_post(post_id):
     db.session.commit()
     flash('Your post has been deleted!', 'success')
     return redirect(url_for('home'))
+
+
+@app.route("/users")
+@login_required
+def all_users():
+    # THIS is where User.query.all() is used!
+    users = User.query.all()
+    
+    # Renders the template with the fetched list
+    return render_template('users.html', title='All Users', users=users)
