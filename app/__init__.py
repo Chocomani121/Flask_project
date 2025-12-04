@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 import pymysql
 
 
+load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
@@ -18,8 +19,8 @@ bcrypt = Bcrypt(app)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
-app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME', 'pgenon53@gmail.com')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD', 'yuvb yunz zbzn gjcp') 
 mail = Mail(app)
 
 
