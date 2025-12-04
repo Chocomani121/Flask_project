@@ -16,11 +16,12 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://testman:Jhayg3309]]:P@
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
+
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME', 'pgenon53@gmail.com')
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD', 'yuvb yunz zbzn gjcp') 
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD', '') 
 mail = Mail(app)
 
 
