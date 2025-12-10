@@ -1,2 +1,7 @@
 /venv
 /__pycache__
+/venv_old
+.env
+*.pyc
+.DS_Store
+instance/
