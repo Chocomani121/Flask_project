@@ -1,16 +1,19 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from dotenv import load_dotenv
+load_dotenv()
+
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
-from dotenv import load_dotenv
+
+
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 from app.config import ConfigDevelopment
-
-
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 mail = Mail()   # - keys for managing user sessions
+
 login_manager = LoginManager()  # - validation for user session 
 login_manager.login_view = 'users.login'   # - login end point  @login_rquired will redirect to 'login' page
 login_manager.login_message_category = 'info'      
@@ -19,6 +22,7 @@ login_manager.login_message_category = 'info'
 
 def create_app(config_class=ConfigDevelopment):
     app = Flask(__name__)
+
     app.config.from_object(config_class)
 
     db.init_app(app)
