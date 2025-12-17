@@ -12,7 +12,7 @@ class Config:
     MAIL_USERNAME = os.getenv("MAIL_USERNAME")
     MAIL_PASSWORD = os.getenv("MAIL_PASSWORD")
 
-print(os.getenv("SQLALCHEMY_DATABASE_URI"))
+
 
 class ConfigDevelopment(Config):
     # """Uses the same env vars, but allows debug mode"""
@@ -25,5 +25,3 @@ class ConfigExample:
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://user:password@host:port/db"
 
 
-if __name__ == '__main__':
-    print(os.getenv("SQLALCHEMY_DATABASE_URI"))
